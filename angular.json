@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "projects": {
+    "crvena-zvezda": {
+      "projectType": "application",
+      "root": "apps/crvena-zvezda",
+      "sourceRoot": "apps/crvena-zvezda/src",
+      "prefix": "viber-bot",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/crvena-zvezda",
+            "index": "apps/crvena-zvezda/src/index.html",
+            "main": "apps/crvena-zvezda/src/main.ts",
+            "polyfills": "apps/crvena-zvezda/src/polyfills.ts",
+            "tsConfig": "apps/crvena-zvezda/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/crvena-zvezda/src/favicon.ico",
+              "apps/crvena-zvezda/src/assets"
+            ],
+            "styles": ["apps/crvena-zvezda/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/crvena-zvezda/src/environments/environment.ts",
+                  "with": "apps/crvena-zvezda/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "crvena-zvezda:build:production"
+            },
+            "development": {
+              "browserTarget": "crvena-zvezda:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "crvena-zvezda:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/crvena-zvezda/src/**/*.ts",
+              "apps/crvena-zvezda/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/crvena-zvezda"],
+          "options": {
+            "jestConfig": "apps/crvena-zvezda/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "crvena-zvezda-e2e": {
+      "root": "apps/crvena-zvezda-e2e",
+      "sourceRoot": "apps/crvena-zvezda-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/crvena-zvezda-e2e/cypress.json",
+            "devServerTarget": "crvena-zvezda:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "crvena-zvezda:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/crvena-zvezda-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["crvena-zvezda"]
+    }
+  }
+}
