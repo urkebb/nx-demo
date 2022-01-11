@@ -1,0 +1,63 @@
+// * App colors
+$secondary-color: #173a53;
+// 173A53
+$main-color: #c3131d;
+
+// * General variables
+$darken-amount: 20%;
+
+// ? Text size
+$font-size: 0.9rem;
+$p: 0.9rem;
+$h1-lg: 6rem;
+$h1: 1.8rem;
+$h2-size: 1.5rem;
+$h3-size: 1.3rem;
+$h4-size: 1rem;
+$small-font-size: 0.7rem;
+
+// ? font weight
+$fw-light: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+
+// ? Base colors
+$info: #3b82f6;
+$success: #00cf8a;
+$warn: #fbbf24;
+$error: #fc035f;
+
+// ? Text color
+$text-color: #24292e;
+$light-text: #707070;
+
+// ? Borders
+$main-border: #e1e4e8;
+$border-radius: 4px;
+$primary-border: #e3e3e3;
+
+// ? Padding
+$small-padding: 0.3rem 0.5rem;
+
+// ? Buttons
+$btn-icon-only-bg: #f8f9fa;
+$disabled-btn-color: #677684;
+$disabled-btn-background-color: #d5daea;
+$main-btn-padding: 0.68rem 0.8rem;
+$small-btn-padding: 0.3rem 0.4rem;
+
+// ? Sidebar
+$sidebar-bg: #121233;
+$sidebar-logo-bg: #1d1d4096;
+$active-item: #a5010b;
+$active-icon-item: #fed154;
+$hover-item: red;
+$sidebar-color: rgba(255, 255, 255, 0.75);
+$sidebar-icon-color: rgba(255, 255, 255, 0.4);
+$sidebar-title-color: rgba(255, 255, 255, 0.4);
+$sidebar-nav-item-left: 2.1rem;
+$sidebar-nav-item-top: 0.7rem;
+
+// ? transition
+$transition-time: 0.1s;

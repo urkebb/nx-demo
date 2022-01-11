@@ -1,0 +1,4 @@
+@function set-transition($transition-time, $property) {
+  $transition: $transition-time $property;
+  @return $transition;
+}

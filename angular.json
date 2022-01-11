@@ -1,6 +1,58 @@
 {
   "version": 1,
   "projects": {
+    "authentication": {
+      "projectType": "library",
+      "root": "libs/authentication",
+      "sourceRoot": "libs/authentication/src",
+      "prefix": "viber-bot",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/authentication"],
+          "options": {
+            "jestConfig": "libs/authentication/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/authentication/src/**/*.ts",
+              "libs/authentication/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "components": {
+      "projectType": "library",
+      "root": "libs/components",
+      "sourceRoot": "libs/components/src",
+      "prefix": "viber-bot",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components"],
+          "options": {
+            "jestConfig": "libs/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/src/**/*.ts",
+              "libs/components/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "crvena-zvezda": {
       "projectType": "application",
       "root": "apps/crvena-zvezda",
@@ -21,7 +73,16 @@
               "apps/crvena-zvezda/src/favicon.ico",
               "apps/crvena-zvezda/src/assets"
             ],
-            "styles": ["apps/crvena-zvezda/src/styles.scss"],
+            "styles": [
+              "apps/crvena-zvezda/src/styles.scss",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/lara-light-indigo/theme.css",
+              "./node_modules/primeflex/primeflex.css",
+              "node_modules/primeng/resources/primeng.min.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["./libs/ui/src/lib/styles"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -122,6 +183,130 @@
       },
       "tags": [],
       "implicitDependencies": ["crvena-zvezda"]
+    },
+    "data": {
+      "root": "libs/data",
+      "sourceRoot": "libs/data/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data"],
+          "options": {
+            "jestConfig": "libs/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "includes": {
+      "projectType": "library",
+      "root": "libs/includes",
+      "sourceRoot": "libs/includes/src",
+      "prefix": "viber-bot",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/includes"],
+          "options": {
+            "jestConfig": "libs/includes/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/includes/src/**/*.ts",
+              "libs/includes/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "pages": {
+      "projectType": "library",
+      "root": "libs/pages",
+      "sourceRoot": "libs/pages/src",
+      "prefix": "viber-bot",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/pages"],
+          "options": {
+            "jestConfig": "libs/pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pages/src/**/*.ts",
+              "libs/pages/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "viber-bot",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/src/**/*.ts",
+              "libs/shared/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "viber-bot",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
     }
   }
 }

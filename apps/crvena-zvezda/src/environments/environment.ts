@@ -4,6 +4,14 @@
 
 export const environment = {
   production: false,
+  // apiUrl: 'https://viberbot-api.itcentar.rs/api/',
+  apiUrl: 'http://localhost:5000/api/',
+
+  milisecondsAfterRedirect: 1500,
+  // mediaUrl: 'https://viberbot-api.itcentar.rs/',
+  mediaUrl: 'http://localhost:5000/',
+
+  // endpoint: 'http://89b4-89-216-25-22.ngrok.io/api/',
 };
 
 /*

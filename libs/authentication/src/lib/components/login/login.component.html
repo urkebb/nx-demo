@@ -1,0 +1,71 @@
+<viber-bot-block-ui [loading]="this.loading">
+  {{ "processing" }}<br />
+  {{ "pleaseWait" }}
+</viber-bot-block-ui>
+
+<main class="flex align-items-center justify-content-center h-100 w-100">
+  <form
+    [formGroup]="form"
+    class="flex align-items-center justify-content-center h-100 w-100"
+  >
+    <viber-bot-card className="auth-card">
+      <ng-container body>
+        <img
+          [src]="this.mainLogo"
+          class="auth-logo"
+          alt="logo"
+        />
+        <ng-container *ngIf="!forgotPasswordMode">
+          <div class="grid">
+            <div class="col-12 pt-0 pb-0">
+              <viber-bot-input [options]="{
+                  label: 'email',
+                  type: 'text',
+                  formControlName: 'email'
+                }"></viber-bot-input>
+            </div>
+
+
+            <div class="col-12 pt-0 pb-0">
+              <viber-bot-input-password [options]="{
+                  label: 'password',
+                  type: 'text',
+                  formControlName: 'password'
+                }">
+              </viber-bot-input-password>
+            </div>
+          </div>
+        </ng-container>
+
+
+        <!-- [disabled]="!form.valid" -->
+
+        <div class="flex flex-column align-items-center mt-3">
+          <button
+            type="submit"
+            class="main-btn secondary-color w-100"
+            (click)="handleSubmit()"
+          >
+            {{
+            !forgotPasswordMode
+            ? 'auth.login'
+            : 'global.send'
+            }}
+            <i class="pi pi-sign-in"></i>
+          </button>
+
+          <a
+            class="mt-3"
+            (click)="handleForgotPasswordClick()"
+          >
+            {{
+            !this.forgotPasswordMode
+            ? ("auth.forgotPass")
+            : ("auth.backToLogin")
+            }}
+          </a>
+        </div>
+      </ng-container>
+    </viber-bot-card>
+  </form>
+</main>

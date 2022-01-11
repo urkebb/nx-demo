@@ -1,0 +1,23 @@
+@import "variables";
+
+// * Progress bar
+.progress-bar {
+  width: 100%;
+  background-color: #f6f7fb;
+  padding: 0.3rem;
+  border-radius: $border-radius;
+  position: relative;
+  .progress-bar-bg {
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-radius: $border-radius;
+    background-color: #c8ecda;
+  }
+  .progress-bar-text {
+    position: relative;
+    z-index: 10;
+  }
+}

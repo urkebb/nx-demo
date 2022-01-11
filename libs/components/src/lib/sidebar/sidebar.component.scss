@@ -1,0 +1,287 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+
+nav {
+  border-radius: $border-radius;
+  border-bottom: 2px solid #fed154;
+  background: $main-color;
+  // background-image: url('./../../../../../apps/crvena-zvezda/src/assets/images/sidebar-bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  box-shadow: 0px 0px 30px #00000045;
+  height: 100%;
+  transition: all 0.4s;
+  position: relative;
+  @include xl {
+    width: 290px;
+  }
+  @include lg {
+    width: 260px;
+  }
+  @include xs {
+    width: 270px;
+    box-shadow: none;
+  }
+  .nav-top-header {
+    border-radius: $border-radius;
+
+    background-color: $main-color;
+    margin-bottom: 1rem;
+    display: flex;
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        color: #fff;
+        margin-left: 0.5rem;
+        transition: all 0.3s;
+      }
+
+      .main-logo {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 50px;
+        height: auto;
+        margin-left: $sidebar-nav-item-left;
+        @include xs {
+          display: none;
+        }
+      }
+    }
+  }
+  .mobile-close-menu {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 4%);
+    position: fixed;
+    top: 0px;
+    right: -270px;
+    z-index: 100;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.6s;
+    @include xs {
+      display: block;
+    }
+    display: none;
+  }
+
+  .sidebar-dropdown-icon {
+    margin-left: 6.3rem;
+    position: absolute;
+    right: 0.5rem;
+  }
+  &.collapsed {
+    width: 91px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    transition: all 0.4s;
+    @include xs {
+      width: 0px;
+    }
+    .logo-container {
+      span {
+        visibility: hidden;
+        margin: 0 !important;
+        opacity: 0;
+        width: 0;
+      }
+    }
+    .dark-mode-switch::after {
+      display: none;
+    }
+    .menu-group-title {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s;
+    }
+    .mobile-close-menu {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    .nav-items .nav-item span {
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s;
+    }
+    .nav-header {
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s;
+    }
+    .nav-subitem {
+      padding-left: 2.1rem !important;
+      i {
+        display: inline-block !important;
+      }
+    }
+    .main-logo {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .expand {
+      transition: all 0.4s;
+      span {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+      }
+    }
+  }
+  .expand {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    // padding-left: 1.5rem;
+    padding-top: 1.75rem;
+    position: absolute;
+    right: calc(11px + -1.5rem);
+    width: fit-content;
+    // top: -16px;
+    z-index: 250;
+    @include xs {
+      top: -28px;
+      position: fixed;
+      left: 0px;
+    }
+    span {
+      width: 100%;
+      margin-left: 0.5rem;
+      opacity: 1;
+      visibility: visible;
+    }
+    .expand-bg {
+      width: 33px;
+      height: 33px;
+      min-width: 33px;
+      min-height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background-color: $secondary-color;
+      border-radius: $border-radius;
+      transition: all 0.4s;
+      margin-left: auto;
+      margin-right: auto;
+      cursor: pointer;
+      box-shadow: 0px 0px 10px $secondary-color;
+      &:hover {
+        background-color: darken($secondary-color, 5%);
+      }
+      i {
+        font-size: 0.7rem;
+        font-weight: bold;
+      }
+      @include xs {
+        width: 55px;
+        height: 55px;
+        border-radius: 0px;
+        background-color: $main-color !important;
+        box-shadow: none;
+      }
+    }
+  }
+  .nav-header {
+    padding: 0.6rem;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    text-transform: uppercase;
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.4s;
+  }
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    height: 70vh;
+    overflow-y: auto;
+    // Scroll bar
+    &::-webkit-scrollbar {
+      width: 2px !important;
+      padding-left: 10px;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    @include xs {
+      padding-top: 3.5rem;
+    }
+    .menu-group-title {
+      text-transform: uppercase;
+      color: $sidebar-title-color;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      padding: 1rem 1rem 0.2rem 2.1rem;
+      transition: all 0.4s;
+    }
+    .nav-subitems {
+      display: none;
+      &.opened {
+        display: block;
+      }
+    }
+    .nav-item {
+      width: 100%;
+      padding: $sidebar-nav-item-top 1rem 0.7rem $sidebar-nav-item-left;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $sidebar-color;
+      cursor: pointer;
+      position: relative;
+      height: 3rem;
+
+      // border-radius: 10px;
+      // margin: 0.1rem auto;
+      &.nav-subitem {
+        padding-left: 3rem;
+        cursor: pointer;
+
+        i {
+          display: none;
+        }
+      }
+      i {
+        font-family: 'primeicons';
+        margin-right: 0.8rem;
+        color: $sidebar-icon-color;
+      }
+      span {
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.4s;
+      }
+      &.active {
+        background: $active-item;
+        // border-left: 3px solid #3699FF;
+        color: #fff;
+        i {
+          color: $active-icon-item;
+        }
+      }
+      &.active-dropdown {
+        background: $active-item;
+        span {
+          color: #fff;
+        }
+        i {
+          color: $active-icon-item;
+        }
+      }
+      &:hover {
+        background: darken($active-item, 3%);
+        transition: 0.3s all;
+        color: #fff;
+      }
+    }
+  }
+}

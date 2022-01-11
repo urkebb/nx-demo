@@ -1,0 +1,55 @@
+@import 'partials/mixins';
+
+.bg-img {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url('./../../../../../apps/crvena-zvezda/src/assets/images/czv.png');
+  background-size: cover;
+  position: fixed;
+  z-index: -1;
+
+  @include xs {
+    display: none;
+  }
+}
+.main-content {
+  width: 100%;
+  height: 100vh;
+  padding: 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-bottom-left-radius: 20px;
+  @include xs {
+    padding: 0px;
+    padding-top: 55px;
+  }
+}
+.top-sidebar {
+  .main-content {
+    padding-top: 2.5rem;
+  }
+}
+.content {
+  width: 100%;
+  height: 100vh;
+  padding-top: 0px;
+  display: flex;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.sidebar-container {
+  margin: 1.5rem 0px 1.5rem 1.5rem;
+  @include xs {
+    margin: 0;
+  }
+}
+::ng-deep {
+  .p-sidebar-content {
+    height: 100%;
+  }
+}

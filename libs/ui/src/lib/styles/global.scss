@@ -1,0 +1,23 @@
+// * App variables
+@import './partials/variables';
+
+// * CSS Reset styles
+@import './partials/reset';
+
+// * Mixins
+@import './partials/mixins';
+
+// * Usefult utility classes
+@import './partials/utility';
+
+// * Override PRIMENG (Imported UI Library) styles
+@import './partials/primeng-override';
+
+// * Buttons
+@import './partials/buttons';
+
+// * FUNCTIONS
+@import './partials/functions';
+
+// * Other global styles
+@import './partials/main';

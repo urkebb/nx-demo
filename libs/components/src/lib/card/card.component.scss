@@ -1,0 +1,27 @@
+@import 'partials/variables';
+
+.card {
+  width: 100%;
+  // padding: 2rem;
+  border-radius: $border-radius;
+}
+
+.card-header {
+  background: #fff;
+  padding: 1.5rem;
+  padding-bottom: 0px;
+  position: sticky;
+  top: -6rem;
+  z-index: 999;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  &:empty {
+    display: none;
+  }
+}
+
+.card-body {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: $border-radius;
+}

@@ -1,0 +1,259 @@
+// * BUTTONS
+.main-btn {
+  background-color: $main-color;
+  color: #fff;
+  border: none;
+  padding: 0.68rem 0.8rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &.p-button {
+    padding: $main-btn-padding;
+  }
+
+  .p-button-label {
+    display: none;
+  }
+
+  i {
+    margin-left: 2rem;
+  }
+  &.only-icon-btn {
+    i {
+      margin: 0px;
+    }
+  }
+  &.add-new-btn {
+    min-width: 160px;
+  }
+  &.back-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      margin: 0;
+    }
+  }
+  &.disabled {
+    background-color: $disabled-btn-background-color;
+    color: $disabled-btn-color;
+    &:hover {
+      background-color: $disabled-btn-background-color;
+    }
+  }
+
+  &:hover {
+    background-color: darken($main-color, $darken-amount);
+    transition: all 0.3s;
+    color: #fff;
+  }
+  &:focus {
+    outline: none;
+    border: none;
+  }
+  &.main-btn-outlined {
+    background-color: transparent !important;
+    border: 1px solid $main-color;
+    color: $main-color;
+    padding: 0.67rem 0.8rem;
+    &:hover {
+      background-color: $main-color !important;
+      color: #fff;
+    }
+  }
+  &.secondary-btn {
+    background-color: #607d8b;
+    color: #fff;
+    transition: all 0.3s;
+    &:hover {
+      background-color: darken(#607d8b, $darken-amount);
+      color: #fff;
+    }
+  }
+}
+
+.only-icon-btn {
+  background-color: $btn-icon-only-bg;
+  border: 1px solid $primary-border;
+  display: flex;
+  align-items: center;
+  min-width: auto;
+
+  &:not([disabled]),
+  &:not(.disabled),
+  &:not(.p-disabled) {
+    &:hover {
+      background-color: darken($btn-icon-only-bg, $darken-amount);
+      border-color: darken($btn-icon-only-bg, $darken-amount);
+      transition: all 0.3s;
+    }
+
+    &:focus {
+      outline: 2px solid $primary-border;
+      border: 1px solid #fff;
+    }
+  }
+
+  i {
+    font-size: 1.1rem;
+    color: black;
+    font-family: "primeicons" !important;
+    margin: 0px;
+  }
+}
+
+.clear-btn {
+  background-color: transparent;
+  color: $main-color;
+  border: none;
+  padding: 0.68rem 0rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.second-btn {
+  background-color: $btn-icon-only-bg;
+  color: $text-color;
+  border: 1px solid $main-border;
+  padding: 0.7rem 0.8rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  &:hover {
+    color: $text-color;
+    background-color: darken($btn-icon-only-bg, $darken-amount);
+    transition: all 0.3s;
+  }
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+.small-btn {
+  padding: $small-btn-padding;
+  i {
+    font-size: 0.8rem;
+  }
+}
+.reorder-handle {
+  padding: 0.3rem 0.4rem;
+  // border: 1px solid $primary-border;
+  border-radius: $border-radius;
+  cursor: pointer;
+  @include xs {
+    text-align: center;
+    &.responsive-handle {
+      width: 100%;
+    }
+  }
+  i {
+    color: $secondary-color;
+    transition: all 0.3s;
+  }
+  &:active {
+    i {
+      color: $main-color;
+      transition: all 0.3s;
+    }
+  }
+}
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  &:hover {
+    .main-btn {
+      background-color: darken($main-color, $darken-amount);
+      transition: all 0.3s;
+    }
+  }
+  input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+}
+.close-bar {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .bar {
+    width: 30%;
+    height: 23px;
+    border-radius: 6px;
+    background: #e1e4e88a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::after {
+      content: "Zatvori";
+    }
+  }
+}
+
+.secondary-color {
+  background-color: $secondary-color;
+  border: 2px solid $secondary-color;
+  border-radius: $border-radius;
+
+  &:hover {
+    background-color: lighten($secondary-color, $darken-amount) !important;
+    border-color: lighten($secondary-color, $darken-amount) !important;
+  }
+  &:focus {
+    outline: 2px solid $secondary-color !important;
+  }
+}
+
+.sidebar-btn {
+  position: absolute;
+  z-index: 4001;
+  bottom: 0;
+  right: 0;
+  margin: 0 1rem 1rem 0;
+  opacity: 0.6;
+  padding: $main-btn-padding;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
